@@ -56,4 +56,37 @@ class UiHelper {
       ),
     );
   }
+  static CustomeContainer({
+    Color? textColor,
+    required TextEditingController controller,
+    Color? color,
+    required BuildContext context,
+  }) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: BoxDecoration(
+        color: color ??
+            (Theme.of(context).brightness == Brightness.dark
+                ? Appcolors.scaffloaddark
+                : Appcolors.scaffloadlight),
+      ),
+      child: TextFormField(
+        maxLength: 1,
+        textAlign: TextAlign.center,
+        controller: controller,
+        keyboardType: TextInputType.numberWithOptions(),
+        style: TextStyle(
+          color: textColor ?? (isDark ? Appcolors.textlightmode : Appcolors.textdarkmode),
+        ),
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          counterText: '',
+        ),
+      ),
+    );
+  }
+
+
 }

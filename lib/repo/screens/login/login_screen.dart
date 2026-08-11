@@ -1,5 +1,6 @@
 import 'package:chatapp/constants/appcolors.dart';
 import 'package:chatapp/constants/cubits/theme.dart';
+import 'package:chatapp/repo/screens/otp/otp_screen.dart';
 import 'package:chatapp/repo/screens/widgets/Ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +10,14 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
+    TextEditingController number = TextEditingController();
+    void login(String phonenumber){
+      if(phonenumber.isEmpty){
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Enter your Phone number')));
+      }else{
+        Navigator.push(context, MaterialPageRoute(builder: ((context) => OtpScreen(phonenumber: phonenumber))));
+      }
+    }
     return  Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).brightness==Brightness.dark? Appcolors.scaffloaddark:Appcolors.scaffloadlight,
@@ -33,7 +41,7 @@ class LoginScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 50,right: 50),
               child: TextFormField(
                 keyboardType: TextInputType.numberWithOptions(),
-                controller: controller,
+                controller: number,
                 decoration: InputDecoration(
                   hintText: 'Phone Number',
                   helperStyle: TextStyle(color: Colors.white70),
@@ -50,10 +58,13 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
-            UiHelper.CustomButton(buttonname: 'Continue', callback: (){}),
           ],
         ),
       ),
+      floatingActionButton: UiHelper.CustomButton(buttonname: 'Continue', callback: (){
+        login(number.text);
+      }),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
