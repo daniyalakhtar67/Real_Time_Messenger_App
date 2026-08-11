@@ -1,5 +1,6 @@
 import 'package:chatapp/constants/appcolors.dart';
 import 'package:chatapp/constants/cubits/theme.dart';
+import 'package:chatapp/repo/screens/login/login_screen.dart';
 import 'package:chatapp/repo/screens/widgets/Ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,9 @@ class Onboardingscreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: UiHelper.CustomButton(buttonname: "Start Messaging", callback: (){}),
+      floatingActionButton: UiHelper.CustomButton(buttonname: "Start Messaging", callback: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+      }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }

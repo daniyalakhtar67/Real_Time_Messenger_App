@@ -36,7 +36,9 @@ class UiHelper {
       height: 52,
       width: 327,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          callback();
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Appcolors.buttonlightmode,
           shape: RoundedRectangleBorder(
