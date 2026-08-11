@@ -11,6 +11,7 @@ class Onboardingscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).brightness==Brightness.dark? Appcolors.scaffloaddark:Appcolors.scaffloadlight,
         centerTitle: true,
         elevation: 0,
         actions: [
@@ -28,7 +29,6 @@ class Onboardingscreen extends StatelessWidget {
             UiHelper.CustomeText(text: 'Connect easily with', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
             UiHelper.CustomeText(text: 'your family and friends', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
             UiHelper.CustomeText(text: 'over countries', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
-
           ],
         ),
       ),
