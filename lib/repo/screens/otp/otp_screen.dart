@@ -1,5 +1,6 @@
 import 'package:chatapp/constants/appcolors.dart';
 import 'package:chatapp/constants/cubits/theme.dart';
+import 'package:chatapp/repo/profile/profile_screen.dart';
 import 'package:chatapp/repo/screens/widgets/Ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,6 +55,12 @@ class OtpScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Pinput(
+                onCompleted: (value){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+                },
+                onSubmitted: (value){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+                }, // Work with Button
                 autofocus: true,
                 controller: otpController,
                 defaultPinTheme: defaultPinTheme,
@@ -61,14 +68,15 @@ class OtpScreen extends StatelessWidget {
                 submittedPinTheme: submittedPinTheme,
               ),
             ),
-            SizedBox(height: 80),
-            TextButton(onPressed: (){}, child: Text('Resend Code',style: TextStyle(
-              color: Theme.of(context).brightness==Brightness.dark ? Appcolors.otptextdark : Appcolors.otptextlight,
-              fontSize: 16,
-            ),))
           ],
         ),
       ),
+      floatingActionButton:
+      TextButton(onPressed: (){}, child: Text('Resend Code',style: TextStyle(
+        color: Theme.of(context).brightness==Brightness.dark ? Appcolors.otptextdark : Appcolors.otptextlight,
+        fontSize: 16,
+      ),)),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
