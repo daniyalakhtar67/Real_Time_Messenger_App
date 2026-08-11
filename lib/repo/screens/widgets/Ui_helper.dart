@@ -49,7 +49,7 @@ class UiHelper {
           buttonname,
           style: TextStyle(
             fontSize: 16,
-            color: buttoncolor,
+            color: Colors.white,
             fontWeight: FontWeight.w300,
           ),
         ),
