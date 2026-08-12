@@ -1,16 +1,32 @@
 import 'package:chatapp/constants/appcolors.dart';
 import 'package:chatapp/constants/cubits/theme.dart';
+import 'package:chatapp/repo/chats/chats_screen.dart';
 import 'package:chatapp/repo/screens/widgets/Ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  void login(String controller){
+    if(controller.isEmpty){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Enter your name')));
+    }else{
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatsScreen()));
+    }
+  }
   @override
   Widget build(BuildContext context) {
     TextEditingController c1 = TextEditingController();
     TextEditingController c2 = TextEditingController();
+
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).brightness==Brightness.dark? AppColors.scaffolddark:AppColors.scaffoldlight,
@@ -59,6 +75,9 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: UiHelper.CustomButton(buttonnname: 'Save', callback: (){
+        login(c1.text);
+      }),
     );
   }
 }
