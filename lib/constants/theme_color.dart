@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 
 class Appthemes{
   static final ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: Appcolors.scaffloadlight,
+    scaffoldBackgroundColor: AppColors.scaffoldlight,
     brightness: Brightness.light,
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(backgroundColor: Appcolors.buttonlightmode)
+      style: ElevatedButton.styleFrom(backgroundColor: AppColors.buttonlightmode)
     ),
     textTheme: TextTheme(
-      bodySmall: TextStyle(color: Appcolors.textlightmode),
-      bodyLarge: TextStyle(color: Appcolors.textlightmode)
+      bodySmall: TextStyle(color: AppColors.textlightmode),
+      bodyLarge: TextStyle(color: AppColors.textlightmode)
     )
   );
   static final ThemeData DarkTheme = ThemeData(
-    scaffoldBackgroundColor: Appcolors.scaffloaddark,
+    scaffoldBackgroundColor: AppColors.scaffolddark,
     brightness: Brightness.dark,
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(backgroundColor: Appcolors.buttondarkmode)
+      style: ElevatedButton.styleFrom(backgroundColor: AppColors.buttondarkmode)
     ),
     textTheme: TextTheme(
-      bodySmall: TextStyle(color: Appcolors.textdarkmode),
-      bodyLarge: TextStyle(color: Appcolors.textdarkmode),
+      bodySmall: TextStyle(color: AppColors.textdarkmode),
+      bodyLarge: TextStyle(color: AppColors.textdarkmode),
     ),
   );
 }

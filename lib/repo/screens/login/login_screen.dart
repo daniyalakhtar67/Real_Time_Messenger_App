@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
     }
     return  Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).brightness==Brightness.dark? Appcolors.scaffloaddark:Appcolors.scaffloadlight,
+        backgroundColor: Theme.of(context).brightness==Brightness.dark? AppColors.scaffolddark:AppColors.scaffoldlight,
         actions: [
           IconButton(onPressed: (){
             BlocProvider.of<ThemeCubit>(context).toggletheme();
@@ -31,11 +31,11 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            (UiHelper.CustomeText(text: 'Enter Your Phone Number', fontsize: 24, context: context,fontweight: FontWeight.bold)),
+            (UiHelper.CustomText(text: 'Enter Your Phone Number', fontsize: 24, context: context,fontweight: FontWeight.bold)),
             SizedBox(height: 10),
-            (UiHelper.CustomeText(text: 'Please confirm your country code and enter', fontsize: 14, context: context)),
+            (UiHelper.CustomText(text: 'Please confirm your country code and enter', fontsize: 14, context: context)),
             SizedBox(height: 5),
-            (UiHelper.CustomeText(text: 'your phone number', fontsize: 14, context: context)),
+            (UiHelper.CustomText(text: 'your phone number', fontsize: 14, context: context)),
             SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.only(left: 50,right: 50),
@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: UiHelper.CustomButton(buttonname: 'Continue', callback: (){
+      floatingActionButton: UiHelper.CustomButton(buttonnname: 'Continue', callback: (){
         login(number.text);
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

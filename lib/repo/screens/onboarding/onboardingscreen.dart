@@ -12,7 +12,7 @@ class Onboardingscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).brightness==Brightness.dark? Appcolors.scaffloaddark:Appcolors.scaffloadlight,
+        backgroundColor: Theme.of(context).brightness==Brightness.dark? AppColors.scaffolddark:AppColors.scaffoldlight,
         centerTitle: true,
         elevation: 0,
         actions: [
@@ -25,15 +25,15 @@ class Onboardingscreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           UiHelper.CustomeImage(imageurl: 'Splash_Photo.png'),
+           UiHelper.CustomImage(imgurl: 'Splash_Photo.png'),
             SizedBox(height: 20),
-            UiHelper.CustomeText(text: 'Connect easily with', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
-            UiHelper.CustomeText(text: 'your family and friends', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
-            UiHelper.CustomeText(text: 'over countries', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
+            UiHelper.CustomText(text: 'Connect easily with', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
+            UiHelper.CustomText(text: 'your family and friends', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
+            UiHelper.CustomText(text: 'over countries', fontsize: 24,fontfamily: 'bold',fontweight: FontWeight.bold,context: context),
           ],
         ),
       ),
-      floatingActionButton: UiHelper.CustomButton(buttonname: "Start Messaging", callback: (){
+      floatingActionButton: UiHelper.CustomButton(buttonnname: 'Start Messaging', callback: (){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

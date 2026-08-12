@@ -24,18 +24,18 @@ class OtpScreen extends StatelessWidget {
       ),
     );
     final focusedPinTheme = defaultPinTheme.copyDecorationWith( // BG Color
-      color: Theme.of(context).brightness==Brightness.dark? Appcolors.otpDarktheme:Appcolors.otplighttheme,
+      color: Theme.of(context).brightness==Brightness.dark? AppColors.otpdarkmode:AppColors.otplightmode,
       borderRadius: BorderRadius.circular(7),
     );
 
     final submittedPinTheme = defaultPinTheme.copyWith( // Theme Color
       decoration: defaultPinTheme.decoration!.copyWith(
-        color: Theme.of(context).brightness==Brightness.dark ? Appcolors.otpDarktheme: Appcolors.otplighttheme,
+        color: Theme.of(context).brightness==Brightness.dark ? AppColors.otpdarkmode: AppColors.otplightmode,
       ),
     );
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).brightness==Brightness.dark ? Appcolors.scaffloaddark : Appcolors.scaffloadlight,
+        backgroundColor: Theme.of(context).brightness==Brightness.dark ? AppColors.scaffolddark : AppColors.scaffoldlight,
         actions: [
           IconButton(onPressed: (){
             BlocProvider.of<ThemeCubit>(context).toggletheme();
@@ -46,11 +46,11 @@ class OtpScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center ,
           children: [
-            UiHelper.CustomeText(text: 'Enter Code', fontsize: 24, context: context,fontweight: FontWeight.bold),
+            UiHelper.CustomText(text: 'Enter Code', fontsize: 24, context: context,fontweight: FontWeight.bold),
             SizedBox(height: 10),
-            UiHelper.CustomeText(text: 'We have sent you an SMS with code', fontsize: 14, context: context),
+            UiHelper.CustomText(text: 'We have sent you an SMS with code', fontsize: 14, context: context),
             SizedBox(height: 5),
-            UiHelper.CustomeText(text: 'to ${phonenumber}', fontsize: 14, context: context),
+            UiHelper.CustomText(text: 'to ${phonenumber}', fontsize: 14, context: context),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -73,7 +73,7 @@ class OtpScreen extends StatelessWidget {
       ),
       floatingActionButton:
       TextButton(onPressed: (){}, child: Text('Resend Code',style: TextStyle(
-        color: Theme.of(context).brightness==Brightness.dark ? Appcolors.otptextdark : Appcolors.otptextlight,
+        color: Theme.of(context).brightness==Brightness.dark ? AppColors.otptextdark : AppColors.otptextlight,
         fontSize: 16,
       ),)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
