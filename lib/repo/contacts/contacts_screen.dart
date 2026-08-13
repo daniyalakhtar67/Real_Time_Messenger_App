@@ -9,25 +9,7 @@ class ContactsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>MoreScreen()));
-          },
-              icon: Icon(Icons.more_horiz_outlined,
-                  color:Theme.of(context).brightness==Brightness.dark? AppColors.icondarkmode:AppColors.iconlightmode)),
-          IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatsScreen()));
-          },
-              icon: Icon(Icons.message,
-                  color:Theme.of(context).brightness==Brightness.dark? AppColors.icondarkmode:AppColors.iconlightmode)),
-          IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactsScreen()));
-          }, icon: Icon(Icons.person_outline_rounded,
-              color: Theme.of(context).brightness==Brightness.dark? AppColors.icondarkmode:AppColors.iconlightmode)),
-        ],
-      ),
+
       appBar: AppBar(
         title: Text('Contacts',style: TextStyle(
           color: Theme.of(context).brightness==Brightness.dark? AppColors.textdarkmode:AppColors.textlightmode,

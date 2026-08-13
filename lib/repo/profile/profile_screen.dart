@@ -5,6 +5,8 @@ import 'package:chatapp/repo/screens/widgets/Ui_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bottomnavigator/bottomnavigatorscreen.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -18,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if(controller.isEmpty){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Enter your name')));
     }else{
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatsScreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bottomnavigatorscreen()));
     }
   }
   @override
