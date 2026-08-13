@@ -1,7 +1,9 @@
 import 'package:chatapp/repo/more/more_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../constants/appcolors.dart';
+import '../../constants/cubits/theme.dart';
 import '../contacts/contacts_screen.dart';
 
 class ChatsScreen extends StatelessWidget {
@@ -11,6 +13,10 @@ class ChatsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          BlocProvider.of<ThemeCubit>(context).toggletheme();
+        }, icon: Icon(Icons.dark_mode_outlined,color: Theme.of(context).brightness==Brightness.dark?
+        AppColors.icondarkmode:AppColors.iconlightmode,)),
         title: Text('Chats',style: TextStyle(
           color: Theme.of(context).brightness==Brightness.dark? AppColors.textdarkmode:AppColors.textlightmode,
         ),),

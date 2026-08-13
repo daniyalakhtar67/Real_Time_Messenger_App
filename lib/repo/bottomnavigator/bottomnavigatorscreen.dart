@@ -1,40 +1,58 @@
-import 'package:chatapp/repo/chats/chats_screen.dart';
-import 'package:chatapp/repo/contacts/contacts_screen.dart';
-import 'package:chatapp/repo/more/more_screen.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter/cupertino.dart';
-class Bottomnavigatorscreen extends StatefulWidget {
-  const Bottomnavigatorscreen({super.key});
+import 'package:flutter/material.dart';
+
+import '../../constants/appcolors.dart';
+import '../chats/chats_screen.dart';
+import '../contacts/contacts_screen.dart';
+import '../more/more_screen.dart';
+
+class BottomNavScreen extends StatefulWidget {
+  const BottomNavScreen({super.key});
 
   @override
-  State<Bottomnavigatorscreen> createState() => _BottomnavigatorscreenState();
+  State<BottomNavScreen> createState() => _BottomNavScreenState();
 }
 
-class _BottomnavigatorscreenState extends State<Bottomnavigatorscreen> {
-  int currentindex= 0;
-  List<Widget>pages=[
+class _BottomNavScreenState extends State<BottomNavScreen> {
+  int currentIndex = 0;
+  List<Widget> pages = [
     ContactsScreen(),
-    ChatsScreen(),
-    MoreScreen(),
+    const ChatsScreen(),
+     MoreScreen()
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(CupertinoIcons.person_2),label: 'Contacts'),
-        BottomNavigationBarItem(icon: Icon(CupertinoIcons.chat_bubble_2),label: 'Chats'),
-        BottomNavigationBarItem(icon: Icon(Icons.more_horiz),label: 'More'),
-      ],currentIndex: currentindex,
-        onTap: (value){
-        setState(() {
-          currentindex = value;
-        });
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.person_2_alt), label: "Contacts"),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.chat_bubble_fill), label: "Chats"),
+          BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: "More")
+        ],
+        currentIndex: currentIndex,
+        type: BottomNavigationBarType.fixed,
+        onTap: (value) {
+          setState(() {
+            currentIndex = value;
+          });
         },
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? AppColors.bottomdark
+            : AppColors.bottomlight,
+        selectedIconTheme: IconThemeData(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? AppColors.icondarkmode
+                : AppColors.iconlightmode),
       ),
       body: IndexedStack(
+        index: currentIndex,
         children: pages,
-        index: currentindex,
-      ),// Navigate to diff pages
+      ),
     );
   }
 }

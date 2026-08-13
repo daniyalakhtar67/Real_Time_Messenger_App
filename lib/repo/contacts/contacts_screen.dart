@@ -1,7 +1,9 @@
 import 'package:chatapp/constants/appcolors.dart';
+import 'package:chatapp/constants/cubits/theme.dart';
 import 'package:chatapp/repo/chats/chats_screen.dart';
 import 'package:chatapp/repo/more/more_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContactsScreen extends StatelessWidget {
   const ContactsScreen({super.key});
@@ -9,7 +11,6 @@ class ContactsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         title: Text('Contacts',style: TextStyle(
           color: Theme.of(context).brightness==Brightness.dark? AppColors.textdarkmode:AppColors.textlightmode,
@@ -23,6 +24,10 @@ class ContactsScreen extends StatelessWidget {
               AppColors.icondarkmode:AppColors.iconlightmode,
             ),
           ),
+          IconButton(onPressed: (){
+            BlocProvider.of<ThemeCubit>(context).toggletheme();
+          }, icon: Icon(Icons.dark_mode_outlined,color: Theme.of(context).brightness==Brightness.dark?
+          AppColors.icondarkmode:AppColors.iconlightmode,))
         ],
         backgroundColor: Theme.of(context).brightness==Brightness.dark? AppColors.scaffolddark:AppColors.scaffoldlight,
       ),

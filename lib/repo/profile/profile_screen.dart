@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     if(controller.isEmpty){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Enter your name')));
     }else{
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bottomnavigatorscreen()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavScreen()));
     }
   }
   @override
