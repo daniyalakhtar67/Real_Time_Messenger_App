@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Chat App',
           theme: state is LightThemeStates? Appthemes.lightTheme:Appthemes.DarkTheme,
-          home: BottomNavScreen(),
+          home: Onboardingscreen(),
         );
       }
     );

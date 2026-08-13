@@ -8,7 +8,7 @@ import '../contacts/contacts_screen.dart';
 import '../more/more_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
-  const BottomNavScreen({super.key});
+  BottomNavScreen({super.key});
 
   @override
   State<BottomNavScreen> createState() => _BottomNavScreenState();
