@@ -1,5 +1,7 @@
 import 'package:chatapp/constants/cubits/theme.dart';
 import 'package:chatapp/constants/cubits/themestates.dart';
+import 'package:chatapp/repo/bottomnavigator/bottomnavigatorscreen.dart';
+import 'package:chatapp/repo/chats/chats_screen.dart';
 import 'package:chatapp/repo/screens/onboarding/onboardingscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Chat App',
           theme: state is LightThemeStates? Appthemes.lightTheme:Appthemes.DarkTheme,
-          home: Onboardingscreen(),
+          home: BottomNavScreen(),
         );
       }
     );

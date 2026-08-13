@@ -7,7 +7,8 @@
   import 'package:flutter_bloc/flutter_bloc.dart';
 
   class ContactsScreen extends StatelessWidget {
-    var data = [
+    var data =
+    [
 
       {
       'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8dOFnXiyeT3SL4e2CrNvIUDxDu5rqEthaO2LXH-_Xg&s=10',

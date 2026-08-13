@@ -19,10 +19,29 @@ class ChatsScreen extends StatelessWidget {
       'name':'kashif',
     },
   ];
-  var searchdata = [
+  var searchdata =  [
     {
-      'image'
+      'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8dOFnXiyeT3SL4e2CrNvIUDxDu5rqEthaO2LXH-_Xg&s=10',
+      'name':'Agha',
+      'msg':'Good morning bro',
+      'status':'18/6',
+      'msgcount':'1',
     },
+    {
+      'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1LqNGdVKHaMK_VxgONlXLEAXlnz3zqYFr-CgTw9ax2A&s=10',
+      'name':'Salman',
+      'msg':'Good morning',
+      'status':'15/6',
+      'msgcount':'1',
+    },
+    {
+      'image':'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDZa7rGO5faHoNcN35DCVY1TC9z0PJJKbBsY56LwZcLw&s=10',
+      'name':'Faisal',
+      'msg':'Aoa, Bro.',
+      'status':'13/6',
+      'msgcount':'5'
+    },
+
   ];
 
   @override
@@ -119,15 +138,33 @@ class ChatsScreen extends StatelessWidget {
             height: 20,
           ),
           SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Column(
-              children: [
-                UiHelper.CustomTextField(controller: c2, text: 'Search', textinputtype: TextInputType.text, context: context, icondata: Icons.search),
-
-              ],
-            ),
-          )
+          UiHelper.CustomTextField(controller: c2, text: 'Search', textinputtype: TextInputType.text, context: context, icondata: Icons.search),
+          SizedBox(height: 10),
+          Expanded(child: ListView.builder(
+              itemCount: searchdata.length,
+              itemBuilder: (context,index){
+            return ListTile(
+              leading: CircleAvatar(
+                radius: 20,
+                backgroundImage: NetworkImage(searchdata[index]['image'].toString()),
+              ),
+              title: Text(searchdata[index]['name'].toString(),style: TextStyle(fontSize: 20)),
+              subtitle: Text(searchdata[index]['msg'].toString()),
+              trailing: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(searchdata[index]['status'].toString()),
+                  CircleAvatar(
+                    radius: 8,
+                    backgroundColor: Theme.of(context).brightness==Brightness.dark?
+                    Color(0XFFD2D5F9) : Color(0xffD2D5F9),
+                    child: Text(searchdata[index]['msgcount'].toString(),style: TextStyle(fontSize: 12,color: Colors.black),),
+                  ),
+                ],
+              ),
+            );
+          }))
         ],
       ),
     );

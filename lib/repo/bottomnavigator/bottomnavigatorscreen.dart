@@ -29,7 +29,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.person_2_alt), label: "Contacts"),
           BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.chat_bubble_fill), label: "Chats"),
+              icon: Icon(CupertinoIcons.chat_bubble_2), label: "Chats"),
           BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: "More")
         ],
         currentIndex: currentIndex,
